@@ -1,0 +1,18 @@
+
+name: Deploy to Production
+
+on: workflow_dispatch
+
+jobs:
+  git-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: git-sync
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://mjshelton12:${{ secrets.SYNC_TEST_TOKEN }}@github.com/mjshelton12/hflatest-dev.git"
+          source_branch: "main"
+          destination_repo: "https://mjshelton12:${{ secrets.SYNC_TEST_TOKEN }}@github.com/mjshelton12/hflatest-prod"
+          destination_branch: "main"
