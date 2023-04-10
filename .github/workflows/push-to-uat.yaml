@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Merge main -> uat
-        uses: devmasx/merge-branch@1.4.0
+        uses: devmasx/merge-branch@master
         with:
           type: now
           target_branch: uat
